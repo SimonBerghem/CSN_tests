@@ -12,5 +12,5 @@ public interface ICalendar
      * @return date of last weekday (yyyymmdd)
      */
 //    public String lastWeekday();
-    public Date getDate() throws ParseException;
+    public Date getDate();
 }
