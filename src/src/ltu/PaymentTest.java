@@ -19,10 +19,14 @@ public class PaymentTest
     // Age requirements
     @Test
     public void id102AgeOver20() throws IOException {
+        String DEFAULT_RULES = "student100loan=7088\nstudent100subsidy=2816\nstudent50loan=3564\nstudent50subsidy=1396\nstudent0loan=0\nstudent0subsidy=0\nfulltimeIncome=85813\nparttimeIncome=128722\n";
         String className = System.getProperty("calendar", "ltu.CalenderForTesting");
         ICalendar cal = getCalendar(className);
-        PaymentImpl t = new PaymentImpl(cal);
+        PaymentImpl t = new PaymentImpl(cal, DEFAULT_RULES);
 
+        int amount = t.getMonthlyAmount("100121-2867", 0, 100, 100);
+
+        assertEquals(7088+2816, amount);
     }
 
 
