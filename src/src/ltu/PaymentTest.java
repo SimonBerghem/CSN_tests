@@ -50,7 +50,6 @@ public class PaymentTest
         assertEquals(7088+2816, amount);
     }
 
-
     @Test
     public void id102id103Age47() {
         int amount = testPaymentImpl.getMonthlyAmount("19690928-4606", 0, 100,100);
@@ -61,6 +60,18 @@ public class PaymentTest
     public void id102id103AgeOver47Under56() {
         int amount = testPaymentImpl.getMonthlyAmount("19630928-4606", 0, 100,100);
         assertEquals(2816, amount);
+    }
+
+    @Test
+    public void id102id103Age56() {
+        int amount = testPaymentImpl.getMonthlyAmount("19600928-4606", 0, 100,100);
+        assertEquals(2816, amount);
+    }
+
+    @Test
+    public void id102AgeOver56() {
+        int amount = testPaymentImpl.getMonthlyAmount("19000928-4606", 0, 100,100);
+        assertEquals(0, amount);
     }
 
     // Study pace requirements
@@ -110,6 +121,24 @@ public class PaymentTest
     // Income while studying requirements
 
     // Completion ratio requirement
+
+    @Test
+    public void id401Below50() {
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 0, 100,25);
+        assertEquals(0, amount);
+    }
+
+    @Test
+    public void id401Exactly50() {
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 0, 100,50);
+        assertEquals(2816+7088, amount);
+    }
+
+    @Test
+    public void id401Over50() {
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 0, 100,75);
+        assertEquals(2816+7088, amount);
+    }
 
     // Full time students compensation
 
