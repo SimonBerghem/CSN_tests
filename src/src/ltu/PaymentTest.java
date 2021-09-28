@@ -176,8 +176,53 @@ public class PaymentTest
     }
 
     // Full time students compensation
+    // Covered in other test
 
     // Halftime students compensation
+    // covered in other test
 
     // Receiving compensation
+    // id 505 already tested
+
+    @Test
+    public void id506EndOnSunday() {
+        String DEFAULT_RULES = "student100loan=7088\nstudent100subsidy=2816\nstudent50loan=3564\nstudent50subsidy=1396\nstudent0loan=0\nstudent0subsidy=0\nfulltimeIncome=85813\nparttimeIncome=128722\n";
+        ICalendar cal = new CalenderForTesting("2016-01-10");
+        try {
+            testPaymentImpl = new PaymentImpl(cal, DEFAULT_RULES);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String date = testPaymentImpl.getNextPaymentDay();
+        assertEquals("20160129", date);
+    }
+
+    @Test
+    public void id506EndOnSaturday() {
+        String DEFAULT_RULES = "student100loan=7088\nstudent100subsidy=2816\nstudent50loan=3564\nstudent50subsidy=1396\nstudent0loan=0\nstudent0subsidy=0\nfulltimeIncome=85813\nparttimeIncome=128722\n";
+        ICalendar cal = new CalenderForTesting("2016-04-10");
+        try {
+            testPaymentImpl = new PaymentImpl(cal, DEFAULT_RULES);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String date = testPaymentImpl.getNextPaymentDay();
+        assertEquals("20160429", date);
+    }
+
+    @Test
+    public void id506EndOnWeekday() {
+        String DEFAULT_RULES = "student100loan=7088\nstudent100subsidy=2816\nstudent50loan=3564\nstudent50subsidy=1396\nstudent0loan=0\nstudent0subsidy=0\nfulltimeIncome=85813\nparttimeIncome=128722\n";
+        ICalendar cal = new CalenderForTesting("2016-03-10");
+        try {
+            testPaymentImpl = new PaymentImpl(cal, DEFAULT_RULES);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String date = testPaymentImpl.getNextPaymentDay();
+        assertEquals("20160331", date);
+    }
 }
