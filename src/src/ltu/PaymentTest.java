@@ -29,7 +29,6 @@ public class PaymentTest
         assertEquals(7088+2816, amount);
     }
 
-
     // Study pace requirements
 
     // Income while studying requirements
