@@ -40,20 +40,20 @@ public class PaymentTest
 
     @Test
     public void id101Age20() {
-        int amount = testPaymentImpl.getMonthlyAmount("20010928-2368", 0, 100,100);
+        int amount = testPaymentImpl.getMonthlyAmount("19960928-2368", 0, 100,100);
         assertEquals(7088+2816, amount);
     }
 
     @Test
     public void id101Id102AgeOver20Under47() {
-        int amount = testPaymentImpl.getMonthlyAmount("19980121-2867", 0, 100, 100);
+        int amount = testPaymentImpl.getMonthlyAmount("19860121-2867", 0, 100, 100);
         assertEquals(7088+2816, amount);
     }
 
 
     @Test
     public void id102id103Age47() {
-        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 0, 100,100);
+        int amount = testPaymentImpl.getMonthlyAmount("19690928-4606", 0, 100,100);
         assertEquals(2816, amount);
     }
 
