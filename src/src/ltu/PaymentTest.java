@@ -57,6 +57,12 @@ public class PaymentTest
         assertEquals(2816, amount);
     }
 
+    @Test
+    public void id102id103AgeOver47Under56() {
+        int amount = testPaymentImpl.getMonthlyAmount("19630928-4606", 0, 100,100);
+        assertEquals(2816, amount);
+    }
+
     // Study pace requirements
     // Cannot check if sub or loan, assumed to be both
     @Test
