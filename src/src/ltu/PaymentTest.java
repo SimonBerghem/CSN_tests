@@ -67,57 +67,43 @@ public class PaymentTest
     // Cannot check if sub or loan, assumed to be both
     @Test
     public void id201NoSub() {
-
-        int amount = testPaymentImpl.getMonthlyAmount("19980121-2867", 0, 49, 100);
-
+        int amount = testPaymentImpl.getMonthlyAmount("20110928-1483", 0, 49, 100);
         assertEquals(0, amount);
     }
 
     @Test
     public void id202Id503Id504HalfSubEdge() {
-
-        int amount = testPaymentImpl.getMonthlyAmount("19980121-2867", 0, 50, 100);
-
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 0, 50, 100);
         assertEquals(1396+3564, amount);
     }
 
     @Test
     public void id202Id503Id504HalfSubOver() {
-
-        int amount = testPaymentImpl.getMonthlyAmount("19980121-2867", 0, 51, 100);
-
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 0, 51, 100);
         assertEquals(1396+3564, amount);
     }
 
     @Test
     public void id202Id503Id504HalfSub() {
-
-        int amount = testPaymentImpl.getMonthlyAmount("19980121-2867", 0, 65, 100);
-
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 0, 65, 100);
         assertEquals(1396+3564, amount);
     }
 
     @Test
     public void id202Id503Id504HalfSubMax() {
-
-        int amount = testPaymentImpl.getMonthlyAmount("19980121-2867", 0, 99, 100);
-
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 0, 99, 100);
         assertEquals(1396+3564, amount);
     }
 
     @Test
     public void id203Id501Id502FullSubEdge() {
-
-        int amount = testPaymentImpl.getMonthlyAmount("19980121-2867", 0, 100, 100);
-
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 0, 100, 100);
         assertEquals(2816+7088, amount);
     }
 
     @Test
     public void id203Id501Id502FullSubOver() {
-
-        int amount = testPaymentImpl.getMonthlyAmount("19980121-2867", 0, 101, 100);
-
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 0, 101, 100);
         assertEquals(2816+7088, amount);
     }
 
