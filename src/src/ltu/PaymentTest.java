@@ -119,6 +119,41 @@ public class PaymentTest
     }
 
     // Income while studying requirements
+    @Test
+    public void id301Under (){
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 85812, 100, 100);
+        assertEquals(2816+7088, amount);
+    }
+
+    @Test
+    public void id301Edge (){
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 85813, 100, 100);
+        assertEquals(2816+7088, amount);
+    }
+
+    @Test
+    public void id301Over (){
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 85814, 100, 100);
+        assertEquals(0, amount);
+    }
+
+    @Test
+    public void id302Under (){
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 128721, 50, 100);
+        assertEquals(1396+3564, amount);
+    }
+
+    @Test
+    public void id302Edge (){
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 128722, 50, 100);
+        assertEquals(1396+3564, amount);
+    }
+
+    @Test
+    public void id302Over (){
+        int amount = testPaymentImpl.getMonthlyAmount("19740928-4606", 128723, 50, 100);
+        assertEquals(0, amount);
+    }
 
     // Completion ratio requirement
 
