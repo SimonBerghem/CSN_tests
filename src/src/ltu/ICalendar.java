@@ -1,5 +1,6 @@
 package src.ltu;
 
+import java.text.ParseException;
 import java.util.Date;
 
 public interface ICalendar
@@ -11,5 +12,5 @@ public interface ICalendar
      * @return date of last weekday (yyyymmdd)
      */
 //    public String lastWeekday();
-    public Date getDate();
+    public Date getDate() throws ParseException;
 }

@@ -1,8 +1,12 @@
 package src.ltu;
 
 import static org.junit.Assert.*;
+import static src.ltu.CalendarFactory.getCalendar;
+
 
 import org.junit.Test;
+
+import java.io.IOException;
 
 public class PaymentTest
 {
@@ -13,6 +17,13 @@ public class PaymentTest
     }
 
     // Age requirements
+    @Test
+    public void id102AgeOver20() throws IOException {
+        String className = System.getProperty("calendar", "ltu.CalenderForTesting");
+        ICalendar cal = getCalendar(className);
+        PaymentImpl t = new PaymentImpl(cal);
+
+    }
 
 
     // Study pace requirements
